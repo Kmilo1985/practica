@@ -1,0 +1,172 @@
+<h4>Formularios <small>template</small></h4>
+<hr>
+<form (ngSubmit)="envioData(forma)" #forma="ngForm" novalidate>
+  <div>
+      <div class="form-group row">
+          <label class="col-2 col-form-label ">Cedula</label>
+          <div class="col-8">
+    
+            <input [ngClass]="{'is-invalid':cedula.errors?.pattern || cedula.errors?.required }"
+             class="form-control"
+                   type="number"
+                   placeholder="Cedula"
+                   name="cedula"
+                   ngModel
+                   minlength="11"
+                   required
+                   #cedula="ngModel"
+                   >
+                   <div class="alert alert-info">
+                      <small>
+                        Solo numeros minimo 11 caracteres
+     
+                      </small> 
+                    </div>
+
+                   <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                   
+                    <div class="invalid-feedback">
+                        Ingresa los datos solicitados
+                      </div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group row">
+            <label class="col-2 col-form-label">Numero Ip</label>
+            <div class="col-8">
+      
+              <input class="form-control"
+                     type="text"
+                     placeholder="numero ip">
+            </div>
+          </div> -->
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+
+        <input [ngClass]="{'is-invalid':nombre.errors?.pattern || nombre.errors?.required }"
+        class="form-control"
+               type="text"
+               placeholder="Nombre"
+               name="nombre"
+               pattern="^([a-z]+[0-9]{0,2}){5,12}$"
+               ngModel
+               #nombre="ngModel"
+               required
+               >
+              
+                <div  class="invalid-feedback" >
+                    Ingresa los datos solicitados
+                  </div>
+               <div class="alert alert-info">
+                 <small>
+                   debe tener una cadena de letras minúsculas, con un número opcionalmente de hasta dos dígitos al 
+                    final. La cadena completa tendrá entre 5 y 12 caracteres.
+
+                 </small> 
+               </div>
+      </div>
+    </div>
+
+    <!-- <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Apellido">
+      </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Celular</label>
+        <div class="col-8">
+  
+          <input class="form-control"
+                 type="text"
+                 placeholder="Apellido">
+        </div>
+      </div> -->
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+
+      <!-- pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" -->
+      <input [ngClass]="{'is-invalid':correo.errors?.pattern || correo.errors?.required }"
+      class="form-control"
+             type="email"
+             placeholder="Correo electrónico"
+             name="correo"
+             ngModel
+             pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+             #correo="ngModel"
+             required
+             >
+             <div class="invalid-feedback" >
+                Ingresa los datos solicitados
+              </div>
+            
+             <div class="alert alert-info">
+                <small>
+                  Ingrese un correo debe contener @ y terminacion .com o com .co
+
+                </small> 
+              </div>
+
+    </div>
+  </div>
+
+  <div class="form-group row">
+      <label class="col-2 col-form-label">paswword</label>
+      <div class="col-md-8">
+  
+        <input
+         class="form-control"
+               type="password"
+               placeholder="contraseña"
+               name="password"
+               ngModel
+               pattern="[A-Za-z0-9!?-]{8,12}"
+               required
+               >
+               <div class="alert alert-info">
+                  <small>
+                    Ingrese una contraseña , debe contener minuscula y mayusculas, numeros, con un total de 8 hasta 12 caracteres
+                  </small> 
+                </div>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Password</label>
+        <div class="col-md-8">
+    
+          <input class="form-control"
+                 type="password"
+                 placeholder="contraseña repite"
+                 name="password2"
+                 ngModel
+                 required
+                 >
+        </div>
+      </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <!--  -->
+      <button [disabled]="!forma.valid"
+      type="submit" class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+</form>
