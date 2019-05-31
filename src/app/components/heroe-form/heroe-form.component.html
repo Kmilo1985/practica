@@ -1,0 +1,85 @@
+
+<h1>Crear Héroe</h1>
+<hr>
+
+<div class="container">
+
+  <div class="row text-right">
+    <div class="col">
+      <button class="btn btn-danger"
+              routerLink="/heroes">
+        <i class="fa fa-arrow-left"></i>
+        Regresar
+      </button>
+    </div>
+  </div>
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+
+    <form [formGroup]="forma" (ngSubmit)="guardarHeroe(forma)"
+         >
+
+      <div class="form-group">
+        <label>Firebase ID</label>
+        <input type="text"
+               class="form-control"
+               placeholder="ID"
+               name="id"
+              >
+        <small class="form-text text-muted">Este campo es autogenerado</small>
+      </div>
+
+
+      <div class="form-group">
+          <label>Nombre</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Nombre del héroe"
+                 formControlName="name"
+                 required>
+      </div>
+
+
+      <div class="form-group">
+          <label>Apellido</label>
+          <input type="text"
+                 class="form-control"
+                 formControlName="bio"
+                 placeholder="apellido">
+      </div>
+      <div class="form-group">
+          <label>Email</label>
+          <input type="date"
+                 class="form-control"
+                 formControlName="aparicion"
+                 placeholder="aparicion">
+      </div>
+      
+      <div class="form-group">
+          <label>Casa</label>
+          <select class="custom-select"
+          formControlName="casa"
+          >
+              <option selected>Seleccione</option>
+              <option>MARVEL</option>
+              <option>DC</option>
+
+            </select>
+      </div>
+
+      <div class="form-group">
+        <button
+                class="btn btn-outline-success" type="submit">
+          <i class="fa fa-smile-wink"></i>
+          Guardar
+        </button>
+      </div>
+      <hr>
+    </form>
+
+
+  </div>
+</div>
+
+</div>

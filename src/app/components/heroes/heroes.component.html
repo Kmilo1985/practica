@@ -1,3 +1,73 @@
-<p>
-  heroes works!
-</p>
+<div class="container">
+  <!-- <app-heroe-form></app-heroe-form> -->
+  <!-- <button (click)="verHeroes()" class="btn btn ptimary">ver</button> -->
+<br>
+  <div class="row text-right">
+    <div class="col">
+      <button  routerLink="/heroe"
+       class="btn btn-success"
+              >
+        <i class="fa fa-arrow-left"></i>
+        Nuevo
+      </button>
+    </div>
+  </div>
+  <hr>
+
+
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Aparicion</th>
+          <th scope="col">Casa</th>
+          <th scope="col">Operaciones</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let heroe of heroes; let i = index ;">
+          <td>{{ i + 1 }}</td>
+          <th scope="row">{{ heroe.nombre}}</th>
+          <td>{{ heroe.aparicion | date:'dd'}}</td>
+          <td>{{ heroe.casa}}</td>
+          <td>
+         
+            <button type="submit"
+            class="btn btn-warning">
+            <i class="fa fa-save"></i>
+            Editar
+          </button> 
+          <hr>
+            <button
+                class="btn btn-danger" type="button">
+            <i class="fa fa-trashed"></i>
+            Eliminar
+        </button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+
+</div>
+
+<div 
+     class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+      <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div 
+     class="alert alert-info text-center mt-3 animated fadeIn faster">
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">
+    Espere por favor
+  </p>
+</div>
+
